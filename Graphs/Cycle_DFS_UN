@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+
+void dfs(int node, int par, vector<vector<int>> &g, vector<int> &col, bool &f){
+    col[node]=1;
+    for(auto x: g[node]){
+        if(x==par) continue;
+        if(col[x]==0){
+            dfs(x,node,g,col,f);
+        }else if(col[x]==1){
+            f = false;
+            // back edges
+            return;
+        }else if(col[x]==2){
+            // cross edges
+        }
+    }
+    col[node]=2;
+    
+}
+
+string cycleDetection (vector<vector<int>>& edges, int n, int m)
+{
+    // Write your code here.
+    vector<vector<int>> g(n+1);
+    for(auto x: edges){
+        g[x[0]].push_back(x[1]);
+        g[x[1]].push_back(x[0]);
+    }
+    vector<int> col(n+1,0);
+    bool f = true;
+    for(int i=1; i<=n;i++){
+        if(col[i]==0){
+            dfs(i,0,g,col,f);
+            if(!f) break;
+        }
+    }
+    
+        if(f) return "No";
+        else return "Yes";
+    
+}
+ 
