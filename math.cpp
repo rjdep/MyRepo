@@ -44,6 +44,10 @@ inline int inv(int a) {
 }
 
 int fact[N];
+ll nCk(ll n, ll k, ll p){
+    return ((fact[n] * inv(fact[k]) % p) * inv(fact[n-k])) % p;
+}
+
 
 void pre() {
     fact[0] = 1;
