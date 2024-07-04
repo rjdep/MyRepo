@@ -47,12 +47,12 @@ This repository contains the Kubernetes configuration files for deploying the Or
   
 - **Getting an Auth Token**:
   To create a new authentication token:
-    1. **Access User Settings**: Open the Console and click on your profile menu located in the top-right corner. Select "User Settings".
-    2. **Generate Token**: In the User Settings, navigate to the "Auth Tokens" section and click on "Generate Token".
-    3. **Describe Token**: Enter a brief, descriptive label for the new auth token. Avoid including sensitive information.
-    4. **Generate and Copy**: Click "Generate Token" to create the new auth token. The token will appear on the screen.
-    5. **Store Securely**: Immediately copy the auth token to a secure location. Once you close the dialog, the token will not be visible again in the Console.
-    6. **Completion**: Close the "Generate Token" dialog when you have securely stored the auth token.
+    - **Access User Settings**: Open the Console and click on your profile menu located in the top-right corner. Select "User Settings".
+    - **Generate Token**: In the User Settings, navigate to the "Auth Tokens" section and click on "Generate Token".
+    - **Describe Token**: Enter a brief, descriptive label for the new auth token. Avoid including sensitive information.
+    - **Generate and Copy**: Click "Generate Token" to create the new auth token. The token will appear on the screen.
+    - **Store Securely**: Immediately copy the auth token to a secure location. Once you close the dialog, the token will not be visible again in the Console.
+    - **Completion**: Close the "Generate Token" dialog when you have securely stored the auth token.
 
 - **Pushing Images**:
   - To push an image, you first use the `docker tag` command to create a copy of the local source image as a new image
