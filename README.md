@@ -1,11 +1,13 @@
-# Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) creation through Terraform
+# Kubernetes Deployment for OCS Production in a New Namespace
 
-This project provides Terraform to automate the creation of an Enhanced OKE cluster with OCI_VCN_IP_NATIVE type network in your Oracle Cloud Infrastructure tenancy.
+This repository contains the Kubernetes configuration files for deploying the Oracle Container Signing (OCS) production environment in a newly created namespace. These configurations include resources such as `ConfigMaps`, `ServiceAccounts`, `Roles`, `RoleBindings`, `ClusterRoles`, `ClusterRoleBindings`, `LimitRanges`, and `IngressClasses`. The deployment is tailored to manage the NGINX Ingress Controller, Notary Signer, Notary Server, Sigsign Server and other essential components within the `ocs-prod` namespace.
 
 
 ## Pre-Requisites
-- **Install Terraform**: Follow this [Install Terraform](https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm#) to install the latest version of Terraform that's supported for OCI Resource Manager.
-- **Export OCI credentials**: (this refer to the https://github.com/oracle/terraform-provider-oci )
+- **Kubernetes Cluster**: A functioning Kubernetes cluster where the resources will be deployed [Kubernetes Cluster](https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengoverview.htm)
+- **Cluster Access**: Sufficient access rights to the cluster to create and manage namespaces and other resources. [Access Cluster](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengaccessingclusterkubectl.htm)
+- **OCIR Repository Access**: Access to the Oracle Cloud Infrastructure Registry (OCIR) to pull necessary images for the deployment. [Container Registry](https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm)
+
 
 
 ## Gather Required Information
