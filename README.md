@@ -99,4 +99,7 @@ This repository contains the Kubernetes configuration files for deploying the Or
 ## References
 - [Oracle Oci Oke Docs](https://oracle-terraform-modules.github.io/terraform-oci-oke/)
 - [Accessing a Cluster Using Kubectl](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengaccessingclusterkubectl.htm)
-- [Terraform: Create a Kubernetes Cluster](https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/tf-cluster/01-summary.htm)
+- [Container Registry](https://docs.oracle.com/en-us/iaas/Content/Registry/home.htm)
+- [Oracle Managed Kubernetes](https://docs.oracle.com/en/solutions/monitor-applications-on-kubernetes/deploy-application-oracle-managed-kubernetes-cluster.html#GUID-B2D9C6EC-DCDF-4BB7-B9C1-3493DA03A3FF)
+- [Objects In Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/)
+- 
