@@ -25,6 +25,7 @@ This repository contains the Kubernetes configuration files for deploying the Or
 - `app.kubernetes.io`:  Labels are a convention recommended by Kubernetes for metadata labels used to describe applications and their components within Kubernetes resources. They typically include components like `component`, `instance`, `name`, `part-of`, and `version`, aiding in better resource grouping, identification, and management within Kubernetes clusters.
 - `Secrets`: It enables Kubernetes clusters to access private images stored in OCIR by securely managing and storing authentication credentials within the cluster, ensuring seamless integration of OCIR-hosted images into Kubernetes workloads.
 - `Generic Secrets`: It provides a way to securely manage and access arbitrary sensitive information as base64-encoded data, supporting various use cases like configuration files, credentials, or other sensitive data needed by applications running in Kubernetes.
+- `TLS Secret`: A type of Kubernetes Secret used to store TLS (Transport Layer Security) certificates and keys securely within the cluster. It enables secure communication over HTTPS or other TLS-based protocols by providing a way to manage and distribute TLS certificates to applications running in Kubernetes, ensuring data confidentiality and integrity.
 
 
 ## Setup and Run
