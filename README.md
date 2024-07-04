@@ -56,15 +56,16 @@ This repository contains the Kubernetes configuration files for deploying the Or
 
 - **Pushing Images**:
   - To push an image, you first use the `docker tag` command to create a copy of the local source image as a new image
-  ```bash
-  <registry-domain>/<tenancy-namespace>/<repo-name>:<version>
-  ```
-  ```bash
-  docker tag <image-identifier> <target-tag>
-  ```
-  ```bash
-  docker push <target-tag>
-  ```
+    ```bash
+      <registry-domain>/<tenancy-namespace>/<repo-name>:<version>
+    ```
+    ```bash
+      docker tag <image-identifier> <target-tag>
+    ```
+  - Push the image to OCIR repository
+    ```bash
+    docker push <target-tag>
+    ```
 
 - **Pulling Images from Container Registry during Kubernetes Deployment**:
   In the application's manifest file you specify the images to pull, the registry to pull them from, and the credentials to use when pulling the images.
@@ -87,6 +88,11 @@ This repository contains the Kubernetes configuration files for deploying the Or
 
     ```bash
       kubectl get <resource-type>
+    ```
+  - `logs`: The `logs` command retrieves logs from containers running inside Pods. It is used for troubleshooting, monitoring applications, and checking application output.
+
+    ```bash
+      kubectl logs <pod-name> -n <namespace-name>
     ```
     
 
