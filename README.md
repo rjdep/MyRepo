@@ -23,6 +23,8 @@ This repository contains the Kubernetes configuration files for deploying the Or
 - `ClusterRoleBinding`: Associates a ClusterRole with a ServiceAccount across the entire cluster, granting the permissions defined in the ClusterRole to that ServiceAccount.
 - `RBAC rules`: Role-Based Access Control govern access permissions in Kubernetes, specifying which actions (verbs) are allowed on which resources (API groups, resources) by whom (subjects like users or ServiceAccounts).
 - `app.kubernetes.io`:  Labels are a convention recommended by Kubernetes for metadata labels used to describe applications and their components within Kubernetes resources. They typically include components like `component`, `instance`, `name`, `part-of`, and `version`, aiding in better resource grouping, identification, and management within Kubernetes clusters.
+- `Secrets`: It enables Kubernetes clusters to access private images stored in OCIR by securely managing and storing authentication credentials within the cluster, ensuring seamless integration of OCIR-hosted images into Kubernetes workloads.
+- `Generic Secrets`: It provides a way to securely manage and access arbitrary sensitive information as base64-encoded data, supporting various use cases like configuration files, credentials, or other sensitive data needed by applications running in Kubernetes.
 
 
 ## Setup and Run
