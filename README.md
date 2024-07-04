@@ -12,46 +12,17 @@ This repository contains the Kubernetes configuration files for deploying the Or
 
 ## Gather Required Information
 **Required Fields:**
-- `compartment_ocid`: Compartment ID where to create all resources.
-- `tenancy_ocid`: Tenancy OCID.
-- `vcn_id`: OCID of the VCN in use.
-- `nodepool_subnet_id`: Subnet ID for node pool.
-- `lb_subnet_id`: Subnet ID for Service Load Balancer.
-- `api_endpoint_subnet_id`: Subnet ID for API endpoints.
-- `pods_subnet_id`: Subnet ID for pods.
-- `node_pool_image_id`: OCID of the image used.
-- `use_existing_vcn`: Indicates whether to use an existing VCN.
-- `use_existing_nsg`: Indicates whether to use an existing NSG.
-- `vcn_native`: Indicates whether to use a native VCN.
-- `is_api_endpoint_subnet_public`: Indicates whether the API endpoint subnet is public.
-- `is_lb_subnet_public`: Indicates whether the LB subnet is public.
-- `is_nodepool_subnet_public`: Indicates whether the node pool subnet is public.
-- `oci_vcn_ip_native`: Indicates whether to use OCI native IP.
-- `cluster_options_add_ons_is_kubernetes_dashboard_enabled`: Indicates whether Kubernetes dashboard is enabled.
-- `cluster_options_add_ons_is_tiller_enabled`: Indicates whether Tiller is enabled.
-- `cluster_options_admission_controller_options_is_pod_security_policy_enabled`: Indicates whether PodSecurityPolicy admission controller is enabled.
-- `eviction_grace_duration`: Eviction grace duration.
-- `is_force_delete_after_grace_duration`: Indicates whether to force delete after grace duration.
-- `node_eviction_node_pool_settings`: Indicates whether node pool eviction settings are enabled.
-- `api_endpoint_nsg_ids`: NSG IDs for API endpoints.
-- `pods_nsg_ids`: NSG IDs for pods.
-- `oke_cluster_name`: Name of the OKE cluster.
-- `cluster_type`: The cluster type.
-- `k8s_version`: Kubernetes version.
-- `pool_name`: Name of the node pool.
-- `node_shape`: Node shape.
-- `max_pods_per_node`: Maximum number of pods per node.
-- `node_linux_version`: Linux version for nodes.
-- `node_count`: Number of nodes.
-- `node_pool_image_type`: Type of image used for node pool.
-- `node_pool_boot_volume_size_in_gbs`: Boot volume size for node pool.
-- `node_ocpus`: Number of CPUs per node.
-- `node_memory`: Memory in GB per node.
-- `node_pool_initial_node_labels_key`: Initial node labels key.
-- `node_pool_initial_node_labels_value`: Initial node labels value.
-- `cluster_kube_config_token_version`: Kubernetes config token version.
-- `ssh_public_key`: Full file path of the SSH public key for API access.
-- `defined_tags`: Defined tags.
+- `Namespace`: A logical partition within a Kubernetes cluster that provides scope for names. It helps organize and manage resources, allowing for separate environments (e.g., development, staging, production) within the same cluster.
+- `ConfigMap`: This ConfigMap contains key-value pairs used to customize the behavior of the controller.
+- `tcp-services`: It provides configurations for services that require TCP load balancing.
+- `udp-services`: It provides configurations for services that require UDP load balancing.
+- `ServiceAccount`: ServiceAccount in Kubernetes is a special type of account that provides an identity for processes running within a Pod.
+- `Role`: Defines a set of permissions within a specific namespace. It specifies what actions can be performed on which resources in that namespace.
+- `ClusterRole`: Defines a set of permissions cluster-wide. It specifies what actions can be performed on which resources across all namespaces in the cluster.
+- `RoleBinding`: Associates a Role with a ServiceAccount within a specific namespace, granting the permissions defined in the Role to that ServiceAccount.
+- `ClusterRoleBinding`: Associates a ClusterRole with a ServiceAccount across the entire cluster, granting the permissions defined in the ClusterRole to that ServiceAccount.
+- `RBAC rules`: Role-Based Access Control govern access permissions in Kubernetes, specifying which actions (verbs) are allowed on which resources (API groups, resources) by whom (subjects like users or ServiceAccounts).
+- `app.kubernetes.io`:  Labels are a convention recommended by Kubernetes for metadata labels used to describe applications and their components within Kubernetes resources. They typically include components like `component`, `instance`, `name`, `part-of`, and `version`, aiding in better resource grouping, identification, and management within Kubernetes clusters.
 
 
 ## Setup and Run
