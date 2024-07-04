@@ -10,7 +10,7 @@ This repository contains the Kubernetes configuration files for deploying the Or
 
 
 
-## Gather Required Information
+## Overview
 **Required Fields:**
 - `Namespace`: A logical partition within a Kubernetes cluster that provides scope for names. It helps organize and manage resources, allowing for separate environments (e.g., development, staging, production) within the same cluster.
 - `ConfigMap`: This ConfigMap contains key-value pairs used to customize the behavior of the controller.
@@ -29,17 +29,66 @@ This repository contains the Kubernetes configuration files for deploying the Or
 
 
 ## Setup and Run
-Edit the `var.tf` file with the required Information.
-Once the setup is done:
-```bash
-terraform init
-```
-```bash
-terraform plan
-```
-```bash
-terraform apply
-```
+- **Logging in to Oracle Cloud Infrastructure Registry**:
+  ```bash
+  docker login <region-key>.ocir.io
+  ```
+  where `region-key` can be found from [Availability by Region](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#regional-availability)
+  
+- **Username**:
+  ```bash
+  <tenancy-namespace>/<username>
+  ```
+  OR
+  ```bash
+  <tenancy-namespace>/oracleidentitycloudservice/<username>
+  ```
+  If your tenancy is federated with Oracle Identity Cloud Service
+  
+- **Getting an Auth Token**:
+  To create a new authentication token:
+    1. **Access User Settings**: Open the Console and click on your profile menu located in the top-right corner. Select "User Settings".
+    2. **Generate Token**: In the User Settings, navigate to the "Auth Tokens" section and click on "Generate Token".
+    3. **Describe Token**: Enter a brief, descriptive label for the new auth token. Avoid including sensitive information.
+    4. **Generate and Copy**: Click "Generate Token" to create the new auth token. The token will appear on the screen.
+    5. **Store Securely**: Immediately copy the auth token to a secure location. Once you close the dialog, the token will not be visible again in the Console.
+    6. **Completion**: Close the "Generate Token" dialog when you have securely stored the auth token.
+
+- **Pushing Images**:
+  - To push an image, you first use the `docker tag` command to create a copy of the local source image as a new image
+  ```bash
+  <registry-domain>/<tenancy-namespace>/<repo-name>:<version>
+  ```
+  ```bash
+  docker tag <image-identifier> <target-tag>
+  ```
+  ```bash
+  docker push <target-tag>
+  ```
+
+- **Pulling Images from Container Registry during Kubernetes Deployment**:
+  In the application's manifest file you specify the images to pull, the registry to pull them from, and the credentials to use when pulling the images.
+  ```bash
+  kubectl create secret generic regcred --namespace=ocs-prod --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson
+  ```
+
+- **Deploying applications**:
+  ```bash
+  kubectl apply -f <file-name.yaml>
+  ```
+
+- **Kubectl Command**:
+  - `describe`: The `describe` command provides detailed information about Kubernetes resources. It is used to troubleshoot and understand the current state of resources by displaying comprehensive metadata and status information.
+
+    ```bash
+      kubectl describe <resource-type> <resource-name>
+    ```
+  - `get`: The `get` command retrieves information about Kubernetes resources.
+
+    ```bash
+      kubectl get <resource-type>
+    ```
+    
 
 ## References
 - [Oracle Oci Oke Docs](https://oracle-terraform-modules.github.io/terraform-oci-oke/)
