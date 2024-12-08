@@ -1,5 +1,10 @@
 struct Unionfind
 {
+    /*
+        Unionfind uf(n);
+        uf.reset();
+        1-based indexing
+    */
     int n, set_size, *parent, *rank;
     Unionfind() {}
     Unionfind(int a)
