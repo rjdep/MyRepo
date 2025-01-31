@@ -3,15 +3,15 @@
 // 2 L R -> Sum of values from L to R
 
 const int N = 200100;
-int arr[N], T[4*N], lazy[4*N];
+long long arr[N], T[4*N], lazy[4*N];
 
-int merge(int a, int b){
+long long merge(long long a, long long b){
     return a+b;
 }
 
 void update(int id, int l, int r, int lq, int rq, int val){
     if(lazy[id]){
-        T[id]=(r - l + 1)*lazy[id];
+        T[id]=1LL*(r - l + 1)*lazy[id]; // For sum query Or else it will change
         if(l!=r){
             lazy[id<<1]=lazy[id];
             lazy[id<<1|1]=lazy[id];
@@ -19,7 +19,7 @@ void update(int id, int l, int r, int lq, int rq, int val){
         lazy[id]=0;
     }
     if(l>=lq && r<=rq){
-        T[id]=(r-l+1)*val;
+        T[id]=1LL*(r-l+1)*val; // For sum query Or else it will change
         if(l != r){
             lazy[id<<1] = val;
             lazy[id<<1|1] = val;
@@ -34,10 +34,10 @@ void update(int id, int l, int r, int lq, int rq, int val){
 
 }
 
-int query(int id, int l, int r, int lq, int rq){
+long long query(int id, int l, int r, int lq, int rq){
     if(lq>r || rq<l) return 0;
     if(lazy[id]){
-        T[id]=(r-l+1)*lazy[id];
+        T[id]=1LL*(r-l+1)*lazy[id]; // For sum query Or else it will change
         if(l != r){
             lazy[id<<1] = lazy[id];
             lazy[id<<1|1] = lazy[id];
